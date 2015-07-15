@@ -1,0 +1,35 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import "vars";
+$container-desktop: (940px + 30px);
+$container-large-desktop: (940px + 30px);
+
+@import "bootstrap";
+
+
+body {
+  padding-top: 50px;
+}
+
+.navbar-brand {
+  padding: 7px 15px 0;
+}
+
+.jumbotron {
+  background: rgba(0, 95, 162, 0.1);
+}
+
+#word-letters {
+  margin: 0 auto;
+  text-align: center;
+
+  li {
+    background: #eee;
+    display: inline-block;
+    margin: 0 15px;
+    padding: 20px;
+  }
+}

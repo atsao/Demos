@@ -1,0 +1,246 @@
+---
+layout: page
+title: Word Guessing Game
+description:
+  'The basics of this game exercise were outlined at <a href="http://www.pairuptocode.com/index.html" target="_blank">Pair Up to Code</a>. I added front-end visuals and user input. I also added tracking guesses and alerts.'
+weight: 2.1
+active: y
+---
+<div class="row">
+  <div class="col-xs-12">
+    <h1 class="page-header">Background</h1>
+    <p class="lead">There was a bit of a challenge working through the exercise from Pair Up to Code. After understanding the solution, I decided to incorporate user input, since the exercise made the game playable only through script calls for guesses.</p>
+    <p>I added user input as well as tracking previous guesses through a Bootstrap-powered interface. Future features I would like to implement include: whole word guessing, point tracking, and a timer.</p>
+    <p><strong>Skills Used</strong>: JavaScript, Bootstrap</p>
+    <p></p>
+  </div>
+</div>
+
+<hr></hr>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title">Instructions</h2>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-9">
+            <p>Click the Start button to begin the game. You will be shown blank boxes for the word letters. Enter your letter guesses in the box and click "Guess!" to submit. Previously guessed letters will be tracked.</p>
+          </div>
+          <div class="col-xs-12 col-sm-3">
+            <a href="#" id="start-button" class="btn btn-success btn-block">Start</a>
+            <a href="#" id="reset-button" class="btn btn-default btn-block disabled">Reset</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+
+    <div id="word-panel" class="panel panel-default">
+      <div id="letters-panel" class="panel-body">
+        <p class="text-center">To begin the game, click the Start button above!</p>
+        <ul id="word-letters" class="list-inline">
+
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+
+    <div id="input-panel" class="panel panel-default hide">
+      <div class="row">
+
+        <div id="guess-panel" class="col-xs-12 col-md-4">
+          <div class="panel-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="guess-letter-label">Enter letter:</span>
+              <input type="text" class="form-control" placeholder="" maxlength="1" aria-describedby="guess-letter-label">
+              <span class="input-group-btn">
+                <button id="guess-button" class="btn btn-primary" type="button">Guess!</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div id="guessed-letters-panel" class="col-xs-12 col-md-8">
+          <div class="panel-body">
+            <div class="input-group">
+              <span class="input-group-addon" id="guessed-letters-label">Guessed Letters:</span>
+              <input type="text" class="form-control" placeholder="" size="52" maxlength="52" aria-describedby="guessed-letters-label" disabled>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var startButton = document.getElementById('start-button'),
+  resetButton = document.getElementById('reset-button'),
+  wordPanel = document.getElementById('word-panel'),
+  lettersPanel = document.getElementById('letters-panel'),
+  wordLetters = document.getElementById('word-letters'),
+  inputPanel = document.getElementById('input-panel'),
+  guessPanel = document.getElementById('guess-panel'),
+  guessButton = document.getElementById('guess-button'),
+  errorAlert = document.getElementById('error-alert'),
+  guessedLettersPanel = document.getElementById('guessed-letters-panel');
+
+var f,
+myWord,
+lettersArray,
+guessesArray,
+guessBool,
+GuessGame = {
+
+  fxn: {
+
+    clearInputs: function() {
+      guessPanel.getElementsByTagName('input')[0].value = "";
+      guessedLettersPanel.getElementsByTagName('input')[0].value = "";
+    },
+
+    chooseWord: function() {
+      var myWords = ["APPLE", "AIRPORT", "ALBUM", "BALLOON", "BARBECUE", "BATHROOM", "BUTTERFLY", "CAPPUCCINO", "CARROT", "CHOCOLATE", "COFFEE", "DIAMOND", "DOCUMENT", "ELECTRICITY", "EXPLOSIVE", "FEATURE", "FLOOD", "GEMSTONE", "HAMMER", "KALEIDOSCOPE", "LEATHER", "MAGNET", "NIMBUS", "OPAL", "OPULENT", "PENDULUM", "PILLOW", "QUEEN", "QUIVER", "RANSOM", "RAPPORT", "SALAMANDER", "SATELLITE", "SPECTRUM", "THERMOMETER", "UMBRELLA", "VULTURE", "WHEELCHAIR", "ZYGOTE"]
+      myWord = myWords[Math.floor(Math.random() * myWords.length)],
+        lettersArray = myWord.split(''),
+        guessesArray = [];
+
+      for (var i = 0; i < lettersArray.length; i++) {
+        guessesArray.push('_');
+      }
+
+      // Generate li elements to show word to be guessed
+      for (var i = 0; i < lettersArray.length; i++) {
+        var l = document.createElement('li');
+        l.className = "h3";
+        wordLetters.appendChild(l);
+        l.innerHTML += guessesArray[i];
+      }
+    },
+
+    guessLetter: function(g) {
+      var correctGuess = false,
+        lettersRemain = false;
+      if (g != '' && isNaN(g)) {
+        for (var i = 0; i < lettersArray.length; i++) {
+          if (lettersArray[i] == g) {
+            guessesArray[i] = g;
+            correctGuess = true;
+          }
+
+          // Check if letters remain
+          if (guessesArray[i] == '_') {
+            lettersRemain = true;
+          }
+        }
+
+        if (correctGuess) {
+          lettersPanel.getElementsByTagName('p')[0].removeClass('alert-success');
+          lettersPanel.getElementsByTagName('p')[0].removeClass('alert-danger');
+          lettersPanel.getElementsByTagName('p')[0].addClass('alert alert-info');
+          lettersPanel.getElementsByTagName('p')[0].textContent = "You found a correct letter!";
+          f.updateProgress();
+
+          if (!lettersRemain) {
+            startButton.addClass('disabled');
+            guessPanel.getElementsByTagName('input')[0].disabled = true;
+            guessButton.addClass('disabled');
+            lettersPanel.getElementsByTagName('p')[0].removeClass('alert-info');
+            lettersPanel.getElementsByTagName('p')[0].removeClass('alert-danger');
+            lettersPanel.getElementsByTagName('p')[0].addClass('alert alert-success');
+            lettersPanel.getElementsByTagName('p')[0].textContent = "You won!";
+
+            f.clearInputs();
+          }
+        } else {
+          lettersPanel.getElementsByTagName('p')[0].removeClass('alert-success');
+          lettersPanel.getElementsByTagName('p')[0].removeClass('alert-info');
+          lettersPanel.getElementsByTagName('p')[0].addClass('alert alert-danger');
+          lettersPanel.getElementsByTagName('p')[0].textContent = "Wrong letter! Try again.";
+        }
+        f.logLetters(g);
+      } else {
+        alert('Your guess is invalid! Please enter a letter.')
+      }
+
+      guessPanel.getElementsByTagName('input')[0].value = "";
+      guessPanel.getElementsByTagName('input')[0].focus();
+    },
+
+    logLetters: function(g) {
+      guessedLettersPanel.getElementsByTagName('input')[0].value += (g + ' ');
+    },
+
+    updateProgress: function() {
+      for (var i = 0; i < wordLetters.getElementsByTagName('li').length; i++) {
+        wordLetters.getElementsByTagName('li')[i].innerHTML = guessesArray[i];
+      }
+    }
+  },
+
+  init: function() {
+    f = this.fxn;
+
+    startButton.addClass('disabled');
+    resetButton.removeClass('disabled');
+    inputPanel.removeClass('hide');
+    lettersPanel.getElementsByTagName('p')[0].textContent = "Good luck!";
+    guessPanel.getElementsByTagName('input')[0].disabled = false;
+    guessPanel.getElementsByTagName('input')[0].focus();
+    f.chooseWord();
+  },
+
+  reset: function() {
+    if (confirm('Are you sure you want to reset the game?')) {
+      f.clearInputs();
+      startButton.removeClass('disabled');
+      resetButton.addClass('disabled');
+      inputPanel.addClass('hide');
+      guessPanel.getElementsByTagName('input')[0].disabled = false;
+      lettersPanel.getElementsByTagName('p')[0].removeClass('alert-sucess');
+      lettersPanel.getElementsByTagName('p')[0].removeClass('alert-info');
+      lettersPanel.getElementsByTagName('p')[0].removeClass('alert-danger');
+      lettersPanel.getElementsByTagName('p')[0].textContent = "To begin the game, click the Start button above!";
+      wordLetters.innerHTML = '';
+    } else {
+      // Do nothing!
+    }
+  }
+};
+
+startButton.onclick = function(e) {
+  e.preventDefault();
+  window.location.hash = '#word-panel';
+  GuessGame.init();
+}
+
+resetButton.onclick = function(e) {
+  e.preventDefault();
+  GuessGame.reset();
+}
+
+guessButton.onclick = function(e) {
+  e.preventDefault();
+  GuessGame.fxn.guessLetter(guessPanel.getElementsByTagName('input')[0].value.toUpperCase());
+}
+
+</script>
+
+
