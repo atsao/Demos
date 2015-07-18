@@ -11,7 +11,10 @@ $container-large-desktop: (940px + 30px);
 
 
 body {
-  padding-top: 50px;
+  // padding-top: 50px;
+}
+.navbar {
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -29,7 +32,23 @@ body {
   li {
     background: #eee;
     display: inline-block;
-    margin: 0 15px;
+    font-family: $headings-font-family;
+    font-weight: $headings-font-weight;
+    line-height: $headings-line-height;
+    color: $headings-color;
+    font-size: $font-size-h5;
+    margin: 15px;
     padding: 20px;
+  }
+}
+
+.spacer-div {
+  height: 240px;
+}
+
+@media (min-width: $screen-sm-min) { 
+  #word-letters li {
+    font-size: $font-size-h3;
+    margin: 0 15px;
   }
 }

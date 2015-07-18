@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"getElemen",
+				"getElementsByTagName"
+			],
+			[
+				"getEleme",
+				"getElementsByTagName"
+			],
+			[
 				"text",
 				"text-align"
 			]
@@ -23,7 +31,7 @@
 			"file": "css/main.scss",
 			"settings":
 			{
-				"buffer_size": 261,
+				"buffer_size": 497,
 				"line_ending": "Unix"
 			}
 		},
@@ -31,7 +39,7 @@
 			"file": "index.md",
 			"settings":
 			{
-				"buffer_size": 2301,
+				"buffer_size": 523,
 				"line_ending": "Unix"
 			}
 		},
@@ -39,7 +47,7 @@
 			"file": "_layouts/default.html",
 			"settings":
 			{
-				"buffer_size": 251,
+				"buffer_size": 245,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +55,7 @@
 			"file": "_layouts/page.html",
 			"settings":
 			{
-				"buffer_size": 256,
+				"buffer_size": 250,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,7 +71,7 @@
 			"file": "_includes/nav.html",
 			"settings":
 			{
-				"buffer_size": 2031,
+				"buffer_size": 2051,
 				"line_ending": "Unix"
 			}
 		},
@@ -71,7 +79,7 @@
 			"file": "_includes/header.html",
 			"settings":
 			{
-				"buffer_size": 423,
+				"buffer_size": 374,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,15 +87,7 @@
 			"file": "_includes/header-page.html",
 			"settings":
 			{
-				"buffer_size": 123,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "memory.html",
-			"settings":
-			{
-				"buffer_size": 2085,
+				"buffer_size": 159,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,8 +95,25 @@
 			"file": "wordguessing.html",
 			"settings":
 			{
-				"buffer_size": 2092,
+				"buffer_size": 8991,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "_includes/footer.html",
+			"settings":
+			{
+				"buffer_size": 370,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/js/scripts.js",
+			"settings":
+			{
+				"buffer_size": 1023,
+				"line_ending": "Unix",
+				"name": "Element.prototype.hasClass = function (className)"
 			}
 		}
 	],
@@ -132,9 +149,11 @@
 	},
 	"file_history":
 	[
-		"/Users/andrewtsao/Desktop/Demos/swatch.md",
-		"/Users/andrewtsao/Desktop/Demos/swatch.html",
+		"/Users/andrewtsao/Desktop/Demos/wordguessing.html",
 		"/Users/andrewtsao/Desktop/Demos/_sass/_vars.scss",
+		"/Users/andrewtsao/Desktop/Demos/swatch.html",
+		"/Users/andrewtsao/Desktop/Demos/memory.html",
+		"/Users/andrewtsao/Desktop/Demos/swatch.md",
 		"/Users/andrewtsao/Desktop/Demos/_includes/footer.html",
 		"/Users/andrewtsao/Desktop/Demos/swatch/index.md",
 		"/Users/andrewtsao/Desktop/Demos/_pages/swatch.md",
@@ -225,23 +244,25 @@
 					"file": "css/main.scss",
 					"settings":
 					{
-						"buffer_size": 261,
+						"buffer_size": 497,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								166,
-								166
+								403,
+								403
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 23.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -251,15 +272,15 @@
 					"file": "index.md",
 					"settings":
 					{
-						"buffer_size": 2301,
+						"buffer_size": 523,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1015,
-								59
+								510,
+								510
 							]
 						],
 						"settings":
@@ -279,15 +300,15 @@
 					"file": "_layouts/default.html",
 					"settings":
 					{
-						"buffer_size": 251,
+						"buffer_size": 245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								251
+								194,
+								194
 							]
 						],
 						"settings":
@@ -305,15 +326,15 @@
 					"file": "_layouts/page.html",
 					"settings":
 					{
-						"buffer_size": 256,
+						"buffer_size": 250,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								199,
+								199
 							]
 						],
 						"settings":
@@ -338,8 +359,8 @@
 						"selection":
 						[
 							[
-								222,
-								222
+								632,
+								632
 							]
 						],
 						"settings":
@@ -357,15 +378,15 @@
 					"file": "_includes/nav.html",
 					"settings":
 					{
-						"buffer_size": 2031,
+						"buffer_size": 2051,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								982,
-								982
+								813,
+								1274
 							]
 						],
 						"settings":
@@ -375,7 +396,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 153.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -385,15 +406,15 @@
 					"file": "_includes/header.html",
 					"settings":
 					{
-						"buffer_size": 423,
+						"buffer_size": 374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								287,
-								287
+								238,
+								238
 							]
 						],
 						"settings":
@@ -413,15 +434,15 @@
 					"file": "_includes/header-page.html",
 					"settings":
 					{
-						"buffer_size": 123,
+						"buffer_size": 159,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92,
-								92
+								128,
+								128
 							]
 						],
 						"settings":
@@ -436,18 +457,46 @@
 				},
 				{
 					"buffer": 9,
-					"file": "memory.html",
+					"file": "wordguessing.html",
 					"settings":
 					{
-						"buffer_size": 2085,
+						"buffer_size": 8991,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								47,
-								47
+								8738,
+								8738
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3569.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "_includes/footer.html",
+					"settings":
+					{
+						"buffer_size": 370,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								355,
+								355
 							]
 						],
 						"settings":
@@ -463,24 +512,25 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "wordguessing.html",
+					"buffer": 11,
+					"file": "assets/js/scripts.js",
 					"settings":
 					{
-						"buffer_size": 2092,
+						"buffer_size": 1023,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								54,
-								54
+								778,
+								778
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"auto_name": "Element.prototype.hasClass = function (className)",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
